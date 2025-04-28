@@ -1,5 +1,5 @@
 plugins {
-  id("uk.gov.justice.hmpps.gradle-spring-boot") version "8.0.0"
+  id("uk.gov.justice.hmpps.gradle-spring-boot") version "8.1.0"
   kotlin("plugin.spring") version "2.1.20"
   kotlin("plugin.jpa") version "2.1.20"
 }
@@ -15,21 +15,21 @@ configurations {
 dependencies {
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-  implementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter:1.4.2")
+  implementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter:1.4.3")
   implementation("org.springframework.boot:spring-boot-starter-data-redis")
-  implementation("uk.gov.justice.service.hmpps:hmpps-sqs-spring-boot-starter:5.4.2")
+  implementation("uk.gov.justice.service.hmpps:hmpps-sqs-spring-boot-starter:5.4.4")
 
-  implementation("com.google.code.gson:gson:2.12.1")
-  implementation("com.google.guava:guava:33.4.5-jre")
+  implementation("com.google.code.gson:gson:2.13.1")
+  implementation("com.google.guava:guava:33.4.8-jre")
 
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
   implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
   implementation("org.apache.groovy:groovy:4.0.26")
   // Needs to match this version https://github.com/microsoft/ApplicationInsights-Java/blob/3.6.2/dependencyManagement/build.gradle.kts#L16
-  implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-annotations:2.13.1")
+  implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-annotations:2.14.0")
 
   testImplementation("net.javacrumbs.json-unit:json-unit-assertj:4.1.0")
-  testImplementation("org.testcontainers:localstack:1.20.6")
+  testImplementation("org.testcontainers:localstack:1.21.0")
   testImplementation("com.amazonaws:aws-java-sdk-core:1.12.782")
   testImplementation("org.awaitility:awaitility-kotlin:4.3.0")
   testImplementation("com.github.codemonstur:embedded-redis:1.4.3") { exclude("org.slf4j", "slf4j-simple") }
@@ -38,7 +38,7 @@ dependencies {
 kotlin {
   jvmToolchain(21)
   compilerOptions {
-    freeCompilerArgs.add("-Xwhen-guards")
+    freeCompilerArgs.addAll("-Xjvm-default=all", "-Xwhen-guards")
   }
 }
 
