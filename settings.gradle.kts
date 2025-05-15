@@ -1,1 +1,1 @@
-rootProject.name = "offender-events-ui"
+rootProject.name = "hmpps-offender-events-ui"

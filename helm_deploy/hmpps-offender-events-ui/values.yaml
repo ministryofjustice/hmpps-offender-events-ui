@@ -1,12 +1,12 @@
 # Values here are the same across all environments
 generic-service:
-  nameOverride: offender-events-ui
+  nameOverride: hmpps-offender-events-ui
   productId: DPS091
 
   serviceAccountName: offender-events-ui
 
   image:
-    repository: quay.io/hmpps/offender-events-ui
+    repository: ghcr.io/ministryofjustice/hmpps-offender-events-ui
     tag: app_version # override at deployment time
     port: 8080
 
@@ -25,7 +25,7 @@ generic-service:
     SPRING_DATA_REDIS_SSL_ENABLED: "true"
 
   namespace_secrets:
-    application-insights:
+    hmpps-offender-events-ui-application-insights:
       APPLICATIONINSIGHTS_CONNECTION_STRING: "APPLICATIONINSIGHTS_CONNECTION_STRING"
     oeu-sqs-instance-output:
       HMPPS_SQS_QUEUES_EVENT_QUEUE_NAME: "sqs_ptpu_name"
@@ -50,5 +50,5 @@ generic-service:
       - unilink_staff
 
 generic-prometheus-alerts:
-  targetApplication: offender-events-ui
+  targetApplication: hmpps-offender-events-ui
   sqsAlertsTotalMessagesThreshold: 20

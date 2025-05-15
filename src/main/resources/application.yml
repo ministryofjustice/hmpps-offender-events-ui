@@ -4,7 +4,7 @@ info.app:
 
 spring:
   application:
-    name: offender-events-ui
+    name: hmpps-offender-events-ui
   profiles:
     group:
       test:
