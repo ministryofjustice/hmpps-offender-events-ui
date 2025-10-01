@@ -30,7 +30,7 @@ services:
     image: localstack/localstack:4
     networks:
       - hmpps
-    container_name: localstack-sqs
+    container_name: localstack-offender-events-ui
     ports:
       - "4566:4566"
     environment:
