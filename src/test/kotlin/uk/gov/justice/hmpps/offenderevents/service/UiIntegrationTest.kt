@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.web.server.LocalServerPort
 import software.amazon.awssdk.services.sqs.model.SendMessageRequest
-import java.net.URL
+import java.net.URI
 
 class UiIntegrationTest : IntegrationTest() {
 
@@ -25,7 +25,7 @@ class UiIntegrationTest : IntegrationTest() {
     awsSqsClient.sendMessage(SendMessageRequest.builder().queueUrl(queueUrl).messageBody(message).build()).get()
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages").readText()
+    val response = URI.create("$baseUrl/messages").toURL().readText()
 
     assertThat(response).contains("EXTERNAL_MOVEMENT_RECORD-INSERTED")
   }
@@ -42,7 +42,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages").readText()
+    val response = URI.create("$baseUrl/messages").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).contains("1200836")
@@ -63,7 +63,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?include-event-type-filter=INTERNAL_MOVEMENT_RECORD-INSERTED,ANOTHER_MOVEMENT_RECORD-INSERTED").readText()
+    val response = URI.create("$baseUrl/messages?include-event-type-filter=INTERNAL_MOVEMENT_RECORD-INSERTED,ANOTHER_MOVEMENT_RECORD-INSERTED").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).contains("1200836")
@@ -84,7 +84,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?exclude-event-type-filter=EXTERNAL_MOVEMENT_RECORD-INSERTED,ANOTHER_MOVEMENT_RECORD-INSERTED").readText()
+    val response = URI.create("$baseUrl/messages?exclude-event-type-filter=EXTERNAL_MOVEMENT_RECORD-INSERTED,ANOTHER_MOVEMENT_RECORD-INSERTED").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).contains("1200836")
@@ -101,7 +101,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?text-filter=1200836").readText()
+    val response = URI.create("$baseUrl/messages?text-filter=1200836").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).contains("1200836")
@@ -117,7 +117,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages").readText()
+    val response = URI.create("$baseUrl/messages").toURL().readText()
 
     assertThat(response).contains("1200835")
     assertThat(response).contains("INVALID-JSON")
@@ -131,7 +131,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?text-filter=EVENTDATETIME").readText()
+    val response = URI.create("$baseUrl/messages?text-filter=EVENTDATETIME").toURL().readText()
 
     assertThat(response).contains("1200835")
   }
@@ -148,7 +148,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?include-topic-filter=Prison").readText()
+    val response = URI.create("$baseUrl/messages?include-topic-filter=Prison").toURL().readText()
 
     assertThat(response).contains("1200835")
     assertThat(response).contains("EXTERNAL_MOVEMENT_RECORD-INSERTED")
@@ -169,7 +169,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?include-topic-filter=Probation").readText()
+    val response = URI.create("$baseUrl/messages?include-topic-filter=Probation").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).contains("OFFENDER_MANAGEMENT_TIER_CALCULATION_REQUIRED")
@@ -190,7 +190,7 @@ class UiIntegrationTest : IntegrationTest() {
 
     `Wait for empty queue`()
 
-    val response = URL("$baseUrl/messages?include-topic-filter=Domain").readText()
+    val response = URI.create("$baseUrl/messages?include-topic-filter=Domain").toURL().readText()
 
     assertThat(response).doesNotContain("1200835")
     assertThat(response).doesNotContain("X405099")
