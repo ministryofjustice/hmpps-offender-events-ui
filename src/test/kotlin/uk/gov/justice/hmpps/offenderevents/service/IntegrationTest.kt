@@ -24,10 +24,10 @@ import uk.gov.justice.hmpps.offenderevents.service.LocalStackContainer.setLocalS
 import uk.gov.justice.hmpps.sqs.HmppsQueue
 import uk.gov.justice.hmpps.sqs.HmppsQueueService
 
+@ExtendWith(RedisExtension::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestPropertySource(properties = ["ui.pageSize=2"])
-@ExtendWith(RedisExtension::class)
 @Import(IntegrationTest.TestConfig::class)
 class IntegrationTest {
   @Autowired
