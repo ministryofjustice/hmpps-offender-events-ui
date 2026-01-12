@@ -9,6 +9,7 @@ configurations {
     exclude(module = "spring-boot-starter-security")
     exclude(module = "spring-boot-starter-security-oauth2-client")
     exclude(module = "spring-boot-starter-security-oauth2-resource-server")
+    exclude(group = "org.springdoc", module = "springdoc-openapi-starter-common")
     exclude(group = "com.fasterxml.jackson.module", module = "jackson-module-kotlin")
   }
 }
