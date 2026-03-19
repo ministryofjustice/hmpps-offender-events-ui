@@ -1,7 +1,7 @@
 plugins {
-  id("uk.gov.justice.hmpps.gradle-spring-boot") version "10.0.6"
-  kotlin("plugin.spring") version "2.3.10"
-  kotlin("plugin.jpa") version "2.3.10"
+  id("uk.gov.justice.hmpps.gradle-spring-boot") version "10.1.0"
+  kotlin("plugin.spring") version "2.3.20"
+  kotlin("plugin.jpa") version "2.3.20"
 }
 
 configurations {
@@ -17,10 +17,10 @@ configurations {
 dependencies {
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-  implementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter:2.0.2")
+  implementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter:2.1.0")
   implementation("org.springframework.boot:spring-boot-starter-data-redis")
   implementation("org.springframework.boot:spring-boot-starter-gson")
-  implementation("uk.gov.justice.service.hmpps:hmpps-sqs-spring-boot-starter:7.0.1")
+  implementation("uk.gov.justice.service.hmpps:hmpps-sqs-spring-boot-starter:7.2.0")
 
   implementation("com.google.guava:guava:33.5.0-jre")
 
