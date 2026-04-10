@@ -42,7 +42,7 @@ jobs:
         uses: ministryofjustice/hmpps-github-shared-actions/.github/actions/build-test-and-deploy/create_app_version@f52dbae537425d92f2216c4a2d9e0e44e603abb1 # v1.0.0
   gradle-verify:
     name: Run the tests
-    uses: ./.github/workflows/gradle_verify.yml
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/gradle_verify.yml@v2 # WORKFLOW_VERSION
     secrets: inherit
     with:
       localstack-tag: "4"
