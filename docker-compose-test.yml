@@ -1,0 +1,24 @@
+services:
+  offender-events-ui-db:
+    image: redis:7.0
+    networks:
+      - hmpps
+    container_name: offender-events-ui-db
+    restart: always
+    ports:
+      - '6379:6379'
+
+  localstack:
+    image: localstack/localstack:4
+    networks:
+      - hmpps
+    container_name: localstack-offender-events-ui
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sns,sqs
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+
+networks:
+  hmpps:
