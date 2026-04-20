@@ -25,8 +25,8 @@ dependencies {
   implementation("com.google.guava:guava:33.6.0-jre")
 
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-  implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
-  implementation("org.apache.groovy:groovy:5.0.3")
+  implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:4.0.1")
+  implementation("org.apache.groovy:groovy:5.0.5")
   // Needs to match this version https://github.com/microsoft/ApplicationInsights-Java/blob/<version>/dependencyManagement/build.gradle.kts#L16
   // where <version> is the version of application insights pulled in by hmpps-gradle-spring-boot
   // at https://github.com/ministryofjustice/hmpps-gradle-spring-boot/blob/main/src/main/kotlin/uk/gov/justice/digital/hmpps/gradle/configmanagers/AppInsightsConfigManager.kt#L7
