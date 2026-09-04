@@ -22,19 +22,19 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-gson")
   implementation("uk.gov.justice.service.hmpps:hmpps-sqs-spring-boot-starter:7.4.1")
 
-  implementation("com.google.guava:guava:33.6.0-jre")
+  implementation("com.google.guava:guava:33.7.1-jre")
 
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
   implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:4.0.1")
-  implementation("org.apache.groovy:groovy:5.0.7")
+  implementation("org.apache.groovy:groovy:5.1.1")
   // Needs to match this version https://github.com/microsoft/ApplicationInsights-Java/blob/<version>/dependencyManagement/build.gradle.kts#L16
   // where <version> is the version of application insights pulled in by hmpps-gradle-spring-boot
   // at https://github.com/ministryofjustice/hmpps-gradle-spring-boot/blob/main/src/main/kotlin/uk/gov/justice/digital/hmpps/gradle/configmanagers/AppInsightsConfigManager.kt#L7
   implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-annotations:2.28.1")
 
   testImplementation("net.javacrumbs.json-unit:json-unit-assertj:5.1.0")
-  testImplementation("org.testcontainers:testcontainers-localstack:2.0.3")
-  testImplementation("com.amazonaws:aws-java-sdk-core:1.12.796")
+  testImplementation("org.testcontainers:testcontainers-localstack:2.0.5")
+  testImplementation("com.amazonaws:aws-java-sdk-core:1.12.797")
   testImplementation("org.awaitility:awaitility-kotlin:4.3.0")
   testImplementation("com.github.codemonstur:embedded-redis:1.4.3") { exclude("org.slf4j", "slf4j-simple") }
 }
