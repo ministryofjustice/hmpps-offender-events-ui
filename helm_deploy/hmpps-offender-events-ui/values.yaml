@@ -1,7 +1,7 @@
 # Values here are the same across all environments
 generic-service:
   nameOverride: hmpps-offender-events-ui
-  productId: DPS091
+  productId: DPS060
 
   serviceAccountName: offender-events-ui
 
